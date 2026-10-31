@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A. SUTERWALA & CO.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+    
+   <!-- LOGO -->
+        <div class="logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='images/ca_logo.png') }}" alt="CA Firm Logo">
+            </a>
+        </div>
+    <nav >
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+
+            <li class="dropdown">
+                <a href="/services">Services </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/services/income_tax">Income Tax</a></li>
+                    <li><a href="/services/gst">GST</a></li>
+                    <li><a href="/services/audit">Audit</a></li>
+                    <li><a href="/services/advisory">Advisory</a></li>
+                    <li><a href="/services/bookkeeping">Bookkeeping</a></li>
+                    <li><a href="/services/business_registration">Business Registration</a></li>
+                    <li><a href="/services/nri_taxation">NRI Taxation</a></li>
+                    <li><a href="/services/payment_processing">Payment Processing</a></li>
+                </ul>
+            </li>
+
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    </div>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>© 2026 A. SUTERWALA & CO.<br> All Rights Reserved.</p>
+<footer>
+    <div class="footer-container">
+        <div class="footer-about">
+            <h4>About</h4>
+            <p>Trusted Chartered Accountants offering tax, GST, audit and advisory services.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="https://www.incometaxindia.gov.in/">Income Tax Dept. (Govt.)</a></li>
+                <li><a href="https://gst.gov.in/">GST Portal (Govt.)</a></li>
+                <li><a href="/resources">Our Resources</a></li>
+                <li><a href="/services">All Services</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p>+91 98XXXXXXXX<br>example@yahoo.co.in</p>
+        </div>
+    </div>
+    <p class="footer-note">© 2026 A. SUTERWALA &amp; CO. All Rights Reserved.</p>
+</footer>
+</html>

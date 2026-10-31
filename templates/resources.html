@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="page-header">
+    <h1>Financial Resources & Tools</h1>
+    <p>Practical tools and guides to help manage your finances</p>
+</section>
+
+<section class="content">
+    <!-- INCOME TAX CALCULATOR -->
+    <div class="resource-tool">
+        <h2><i class="fas fa-calculator"></i> Income Tax Calculator</h2>
+        <p>Calculate your estimated income tax based on your income and deductions.</p>
+        <div class="calculator">
+            <div class="calc-input">
+                <label>Annual Income (₹):</label>
+                <input type="number" id="income" placeholder="Enter your annual income" min="0">
+            </div>
+            <div class="calc-input">
+                <label>Deductions (₹):</label>
+                <input type="number" id="deductions" placeholder="e.g., HRA, LTA, 80C etc" min="0">
+            </div>
+            <div class="calc-input">
+                <label>Taxable Income (₹):</label>
+                <input type="text" id="taxableIncome" placeholder="Auto-calculated" readonly>
+            </div>
+            <div class="calc-input">
+                <label>Estimated Tax (₹):</label>
+                <input type="text" id="estimatedTax" placeholder="Auto-calculated" readonly>
+            </div>
+            <button onclick="calculateIncomeTax()">Calculate Tax</button>
+        </div>
+    </div>
+
+    <!-- GST CALCULATOR -->
+    <div class="resource-tool">
+        <h2><i class="fas fa-percentage"></i> GST Calculator</h2>
+        <p>Calculate GST amount and final price including tax.</p>
+        <div class="calculator">
+            <div class="calc-input">
+                <label>Base Amount (₹):</label>
+                <input type="number" id="baseAmount" placeholder="Enter amount before GST" min="0">
+            </div>
+            <div class="calc-input">
+                <label>GST Rate (%):</label>
+                <select id="gstRate">
+                    <option value="0">0% - Exempted goods</option>
+                    <option value="5">5% - Essential items</option>
+                    <option value="12">12% - Standard goods</option>
+                    <option value="18" selected>18% - Standard goods</option>
+                    <option value="28">28% - Luxury items</option>
+                </select>
+            </div>
+            <div class="calc-input">
+                <label>GST Amount (₹):</label>
+                <input type="text" id="gstAmount" placeholder="Auto-calculated" readonly>
+            </div>
+            <div class="calc-input">
+                <label>Final Amount (₹):</label>
+                <input type="text" id="finalAmount" placeholder="Auto-calculated" readonly>
+            </div>
+            <button onclick="calculateGST()">Calculate GST</button>
+        </div>
+    </div>
+
+    <!-- EMI CALCULATOR -->
+    <div class="resource-tool">
+        <h2><i class="fas fa-home"></i> EMI Calculator</h2>
+        <p>Calculate your monthly EMI for loans and mortgages.</p>
+        <div class="calculator">
+            <div class="calc-input">
+                <label>Loan Amount (₹):</label>
+                <input type="number" id="loanAmount" placeholder="Enter loan amount" min="0">
+            </div>
+            <div class="calc-input">
+                <label>Annual Interest Rate (%):</label>
+                <input type="number" id="interestRate" placeholder="e.g., 8.5" min="0" step="0.1">
+            </div>
+            <div class="calc-input">
+                <label>Loan Duration (Months):</label>
+                <input type="number" id="loanDuration" placeholder="e.g., 60" min="1" step="1">
+            </div>
+            <div class="calc-input">
+                <label>Monthly EMI (₹):</label>
+                <input type="text" id="emiAmount" placeholder="Auto-calculated" readonly>
+            </div>
+            <div class="calc-input">
+                <label>Total Amount (₹):</label>
+                <input type="text" id="totalAmount" placeholder="Auto-calculated" readonly>
+            </div>
+            <button onclick="calculateEMI()">Calculate EMI</button>
+        </div>
+    </div>
+
+    <!-- TAX COMPLIANCE CHECKLIST -->
+    <div class="resource-tool">
+        <h2><i class="fas fa-checklist"></i> Tax Compliance Checklist</h2>
+        <p>Make sure you're compliant with all tax requirements.</p>
+        <div class="checklist">
+            <div class="checklist-item">
+                <input type="checkbox" id="itr">
+                <label for="itr">File Income Tax Return (ITR) before deadline</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="gstReturn">
+                <label for="gstReturn">File GST returns monthly/quarterly</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="tds">
+                <label for="tds">Ensure TDS is correctly deposited</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="section80c">
+                <label for="section80c">Claim 80C deductions (₹1.5 Lakh limit)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="section80d">
+                <label for="section80d">Claim health insurance deductions</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="auditRecords">
+                <label for="auditRecords">Maintain audit records for 6 years</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="invoices">
+                <label for="invoices">Keep all invoices and receipts organized</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="bankStatements">
+                <label for="bankStatements">Reconcile bank statements monthly</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- INCOME TAX SLABS -->
+    <div class="resource-tool">
+        <h2><i class="fas fa-chart-bar"></i> Income Tax Slabs (FY 2024-25)</h2>
+        <p>Current tax rates for individuals (Indian residents)</p>
+        <table class="tax-table">
+            <thead>
+                <tr>
+                    <th>Income Range</th>
+                    <th>Tax Rate</th>
+                    <th>Applicable To</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Up to ₹2,50,000</td>
+                    <td>Nil</td>
+                    <td>All individuals</td>
+                </tr>
+                <tr>
+                    <td>₹2,50,001 - ₹5,00,000</td>
+                    <td>5%</td>
+                    <td>All individuals</td>
+                </tr>
+                <tr>
+                    <td>₹5,00,001 - ₹10,00,000</td>
+                    <td>20%</td>
+                    <td>All individuals</td>
+                </tr>
+                <tr>
+                    <td>Above ₹10,00,000</td>
+                    <td>30%</td>
+                    <td>All individuals</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- COMMON DEDUCTIONS -->
+    <div class="resource-tool">
+        <h2><i class="fas fa-gift"></i> Popular Tax Deductions</h2>
+        <div class="deduction-grid">
+            <div class="deduction-card">
+                <h3>Section 80C</h3>
+                <p><strong>Limit:</strong> ₹1,50,000</p>
+                <p>LIC, Mutual Funds, ELSS, PPF, FD</p>
+            </div>
+            <div class="deduction-card">
+                <h3>Section 80D</h3>
+                <p><strong>Limit:</strong> ₹75,000</p>
+                <p>Health insurance premiums</p>
+            </div>
+            <div class="deduction-card">
+                <h3>Section 80E</h3>
+                <p><strong>No Limit</strong></p>
+                <p>Education loan interest</p>
+            </div>
+            <div class="deduction-card">
+                <h3>Home Loan Interest</h3>
+                <p><strong>Limit:</strong> ₹2,00,000</p>
+                <p>Section 24(b) deduction</p>
+            </div>
+            <div class="deduction-card">
+                <h3>HRA Exemption</h3>
+                <p><strong>Variable</strong></p>
+                <p>Rent paid to landlord</p>
+            </div>
+            <div class="deduction-card">
+                <h3>NPS Contribution</h3>
+                <p><strong>Limit:</strong> ₹2,00,000</p>
+                <p>Section 80CCC deduction</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script>
+function calculateIncomeTax() {
+    const income = parseFloat(document.getElementById('income').value) || 0;
+    const deductions = parseFloat(document.getElementById('deductions').value) || 0;
+    const taxableIncome = income - deductions;
+    
+    document.getElementById('taxableIncome').value = taxableIncome.toLocaleString('en-IN', {maximumFractionDigits: 0});
+    
+    let tax = 0;
+    if (taxableIncome > 1000000) {
+        tax = (taxableIncome - 1000000) * 0.30 + 200000 + 100000;
+    } else if (taxableIncome > 500000) {
+        tax = (taxableIncome - 500000) * 0.20 + 100000;
+    } else if (taxableIncome > 250000) {
+        tax = (taxableIncome - 250000) * 0.05;
+    }
+    
+    document.getElementById('estimatedTax').value = tax.toLocaleString('en-IN', {maximumFractionDigits: 0});
+}
+
+function calculateGST() {
+    const baseAmount = parseFloat(document.getElementById('baseAmount').value) || 0;
+    const gstRate = parseFloat(document.getElementById('gstRate').value) || 0;
+    const gstAmount = (baseAmount * gstRate) / 100;
+    const finalAmount = baseAmount + gstAmount;
+    
+    document.getElementById('gstAmount').value = gstAmount.toLocaleString('en-IN', {maximumFractionDigits: 2});
+    document.getElementById('finalAmount').value = finalAmount.toLocaleString('en-IN', {maximumFractionDigits: 2});
+}
+
+function calculateEMI() {
+    const principal = parseFloat(document.getElementById('loanAmount').value) || 0;
+    const ratePerMonth = (parseFloat(document.getElementById('interestRate').value) || 0) / 12 / 100;
+    const months = parseInt(document.getElementById('loanDuration').value) || 0;
+    
+    if (principal > 0 && ratePerMonth > 0 && months > 0) {
+        const emi = (principal * ratePerMonth * Math.pow(1 + ratePerMonth, months)) / (Math.pow(1 + ratePerMonth, months) - 1);
+        const totalAmount = emi * months;
+        
+        document.getElementById('emiAmount').value = emi.toLocaleString('en-IN', {maximumFractionDigits: 2});
+        document.getElementById('totalAmount').value = totalAmount.toLocaleString('en-IN', {maximumFractionDigits: 2});
+    }
+}
+</script>
+
+{% endblock %}
