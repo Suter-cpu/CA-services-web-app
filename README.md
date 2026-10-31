@@ -26,7 +26,7 @@ A multi-page Chartered Accountancy services web application designed to provide 
 
 ## Technologies Used
 
-| Technology | Purpose |
+ Technology   |  Purpose 
 <br>
 | Python | Backend development |<br>
 | Flask | Web framework and routing |<br>
