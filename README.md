@@ -46,12 +46,15 @@ A multi-page Chartered Accountancy services web application designed to provide 
 ### Installation
 
 **1. Clone the repository**
+<br>
 git clone YOUR_REPOSITORY_URL
 
 **2. Navigate to the project directory**:
+<br>
 cd ca-services-web-app
 
 **3. Create a virtual environment**:
+<br>
 python -m venv venv
 
 **4. Activate the virtual environment**:
@@ -60,10 +63,12 @@ For Windows:
 venv\Scripts\activate
 
 **5. Install dependencies**:
+<br>
 pip install -r requirements.txt
 
 
 **6. Run the application**:
+<br>
 python app.py
 
 **7. Open the application**:
