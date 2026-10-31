@@ -27,13 +27,13 @@ A multi-page Chartered Accountancy services web application designed to provide 
 ## Technologies Used
 
 | Technology | Purpose |
-<br.
-| Python | Backend development |
-| Flask | Web framework and routing |
-| SQLite3 | Database management |
-| HTML5 | Page structure |
-| CSS3 | Styling and layout |
-| JavaScript | Frontend interactions |
+<br>
+| Python | Backend development |<br>
+| Flask | Web framework and routing |<br>
+| SQLite3 | Database management |<br>
+| HTML5 | Page structure |<br>
+| CSS3 | Styling and layout |<br>
+| JavaScript | Frontend interactions |<br>
 | Jinja2 | Dynamic HTML templating |
 
 ## Getting Started
