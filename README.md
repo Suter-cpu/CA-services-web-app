@@ -27,6 +27,7 @@ A multi-page Chartered Accountancy services web application designed to provide 
 ## Technologies Used
 
 | Technology | Purpose |
+<br.
 | Python | Backend development |
 | Flask | Web framework and routing |
 | SQLite3 | Database management |
@@ -47,25 +48,26 @@ A multi-page Chartered Accountancy services web application designed to provide 
 **1. Clone the repository**
 git clone YOUR_REPOSITORY_URL
 
-**2. Navigate to the project directory**
+**2. Navigate to the project directory**:
 cd ca-services-web-app
 
-**3. Create a virtual environment**
+**3. Create a virtual environment**:
 python -m venv venv
 
-**4. Activate the virtual environment**
+**4. Activate the virtual environment**:
+<br>
 For Windows:
 venv\Scripts\activate
 
-**5. Install dependencies**
+**5. Install dependencies**:
 pip install -r requirements.txt
 
 
-**6. Run the application**
+**6. Run the application**:
 python app.py
 
-**7. Open the application**
-
+**7. Open the application**:
+<br>
 Visit:
 http://127.0.0.1:5000
 
